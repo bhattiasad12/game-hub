@@ -1,11 +1,9 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
-import UserGenres from "./hooks/UserGenres";
-import { li } from "framer-motion/client";
+import GenreList from "./components/GenreList";
 
 function App() {
-  const { genres } = UserGenres();
   return (
     <Grid
       templateAreas={{
@@ -18,11 +16,7 @@ function App() {
       </GridItem>
       <Show above="lg">
         <GridItem area="aside">
-          <ul>
-            {genres.map((genre) => (
-              <li key={genre.id}>{genre.name}</li>
-            ))}
-          </ul>
+          <GenreList />
         </GridItem>
       </Show>
       <GridItem area="main">
